@@ -1,3 +1,4 @@
+import angular from 'angular';
 exports.inject = function(app) {
   app.controller('AboutCtrl', exports.controller);
   return exports.controller;

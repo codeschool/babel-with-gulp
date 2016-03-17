@@ -2,11 +2,18 @@ import angular from 'angular';
 
 export default function(){
 
-angular.module('myApp', [])
-.controller('AboutCtrl', ['$scope', function($scope) {
-  $scope.greeting = 'Hola!';
-  console.log("HOWDY");
-}]);
+  angular.module('myApp',[])
+  .directive('myApp', function() {
+    return {
+      restrict: 'A',
+      template: '{{greeting}}',
+      controller: function($scope) {
+        $scope.greeting = 'Hola!';
+      },
+      link: function($scope){
+        console.log('ZE SCOPE',  $scope)
+      }
+    };
+  });
 
-  console.log("HOWDY");
 }

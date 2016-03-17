@@ -1,11 +1,15 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-"use strict";
+'use strict';
 
-var _flashMessage = require("./flash-message");
+var _flashMessage = require('./flash-message');
 
 var _flashMessage2 = _interopRequireDefault(_flashMessage);
 
-var _directive = require("./directive");
+var _angular = require('angular');
+
+var _angular2 = _interopRequireDefault(_angular);
+
+var _directive = require('./directive');
 
 var _directive2 = _interopRequireDefault(_directive);
 
@@ -14,11 +18,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _directive2.default)();
 // import './routes'
 
-
 var flash = new _flashMessage2.default("Hello from ES2015, Babel and Gulp!");
 flash.display();
 
-},{"./directive":2,"./flash-message":3}],2:[function(require,module,exports){
+},{"./directive":2,"./flash-message":3,"angular":5}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -27,12 +30,18 @@ Object.defineProperty(exports, "__esModule", {
 
 exports.default = function () {
 
-  _angular2.default.module('myApp', []).controller('AboutCtrl', ['$scope', function ($scope) {
-    $scope.greeting = 'Hola!';
-    console.log("HOWDY");
-  }]);
-
-  console.log("HOWDY");
+  _angular2.default.module('myApp', []).directive('myApp', function () {
+    return {
+      restrict: 'A',
+      template: '{{greeting}}',
+      controller: function controller($scope) {
+        $scope.greeting = 'Hola!';
+      },
+      link: function link($scope) {
+        console.log('ZE SCOPE', $scope);
+      }
+    };
+  });
 };
 
 var _angular = require('angular');
