@@ -29,6 +29,8 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "angular": "^1.5.1",
+    "angular-ui-router": "^0.2.18",
     "babel-core": "^6.1.21"
   }
 }
