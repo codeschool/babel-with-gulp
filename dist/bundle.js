@@ -27,10 +27,12 @@ Object.defineProperty(exports, "__esModule", {
 
 exports.default = function () {
 
-  _angular2.default.module('myApp', []).controller('GreetingController', ['$scope', function ($scope) {
+  _angular2.default.module('myApp', []).controller('AboutCtrl', ['$scope', function ($scope) {
     $scope.greeting = 'Hola!';
     console.log("HOWDY");
   }]);
+
+  console.log("HOWDY");
 };
 
 var _angular = require('angular');
