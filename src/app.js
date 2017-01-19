@@ -1,5 +1,4 @@
-import FlashMessage from "./flash-message";
+import Post from './post';
+import ui from './ui'
 
-let flash = new FlashMessage("Hello from ES2015, Babel and Gulp!");
-flash.display();
-
+Post.findAll().then(ui.renderPosts).catch((error) => console.log(error));
