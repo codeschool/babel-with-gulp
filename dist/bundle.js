@@ -49,10 +49,23 @@ Object.defineProperty(exports, "__esModule", {
 });
 var ui = {
   renderPosts: function renderPosts(posts) {
-    console.log(posts);
+    var elements = posts.map(function (post) {
+      var title = post.title,
+          lastReply = post.lastReply;
+      // same as post.title and post.lastReply
+
+      return articleTemplate(title, lastReply);
+    });
+    var target = document.querySelector(".container");
+    target.innerHTML = elements.join("");
   }
 };
 
+function articleTemplate(title, lastReply) {
+
+  var template = "<article class='post'>\n    <h2 class='post-title'>\n    " + title + "\n    </h2>\n    <p class='post-meta'>\n      last reply on, " + lastReply + "\n    </p>\n  </article>";
+  return template;
+}
 exports.default = ui;
 
 },{}]},{},[1]);
